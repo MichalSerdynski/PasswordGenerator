@@ -9,13 +9,13 @@ public class Password {
 
     static char[] tempPassword;
     public Password(int numberLetters, boolean hasLowerCase, boolean containsNumber, boolean containsSpecial){
-         this.numberLetters = numberLetters;
-         this.hasLowerCase = hasLowerCase;
-         this.containsNumber = containsNumber;
-         this.containsSpecial = containsSpecial;
+         Password.numberLetters = numberLetters;
+         Password.hasLowerCase = hasLowerCase;
+         Password.containsNumber = containsNumber;
+         Password.containsSpecial = containsSpecial;
     }
 
-    public char[] charactersReq(int numberLetters){
+    public void charactersReq(int numberLetters){
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         tempPassword = new char[numberLetters];
         for(int i = 0; i < tempPassword.length; i++){
@@ -23,11 +23,10 @@ public class Password {
             int x = random.nextInt(numberLetters + 1);
             tempPassword[i] = alphabet[x];
         }
-        return tempPassword;
 
     }
 
-    public char[] toLowerCase(boolean haslowerCase) {
+    public void toLowerCase(boolean haslowerCase) {
 
         if (haslowerCase) {
             Random random = new Random();
@@ -38,10 +37,9 @@ public class Password {
             }
 
         }
-        return tempPassword;
     }
 
-    public char[] addNumbers(boolean containsNumber){
+    public void addNumbers(boolean containsNumber){
         if (containsNumber) {
             Random random = new Random();
             int numberOfNumbers = random.nextInt(numberLetters - 1);
@@ -52,11 +50,10 @@ public class Password {
             }
 
         }
-        return tempPassword;
 
     }
 
-    public char[] addSpecial(boolean containsSpecial){
+    public void addSpecial(boolean containsSpecial){
         if (containsSpecial) {
             Random random = new Random();
             int numberOfSpecial = random.nextInt(numberLetters - 1);
@@ -68,7 +65,6 @@ public class Password {
             }
 
         }
-        return tempPassword;
     }
 
 public static void main(String[] args){
